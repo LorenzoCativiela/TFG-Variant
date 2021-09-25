@@ -1,0 +1,83 @@
+/* app/styles.css */
+
+
+* {
+  box-sizing: border-box;
+
+}
+
+
+
+html,
+body {
+  background: #ffd700;
+
+}
+.title{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
+  font-size:5.5vw;
+	letter-spacing:0.2em;
+
+
+}
+
+.titleShadow{
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  text-shadow:
+  5px 5px #eebd37,
+  17px 17px #720b61;
+}
+.buttonShadow{
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  text-shadow:
+  4px 4px #ad2ce9,
+  10px 10px #720b61;
+}
+
+.custom-form {
+  border-radius: 25px;
+  border-style: solid;
+  border-color:#9173aa;
+  background: #AB92BF;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+
+  min-width: 300px;
+  max-width: 40%;
+  margin: 0px auto;
+  padding: 2rem 3rem;
+  margin: auto;
+  margin-top: 5rem;
+}
+.custom-form input {
+  display: block;
+  margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  box-shadow: inset -2px -2px 3px #42413e, inset 2px 2px 3px
+      rgba(0, 0, 0, 0.1);
+  border: 0 none;
+}
+button {
+  border: none;
+  background-color: #eebd37;
+  width: 100%;
+  display: block;
+  padding: 1.875rem 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 3px 3px 5px #424242, -2px -2px 5px #b9b9b9;
+  cursor: pointer;
+}
+h3{
+  font-size: 3rem;
+}

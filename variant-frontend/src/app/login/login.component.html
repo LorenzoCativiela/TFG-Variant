@@ -1,0 +1,26 @@
+<div class = "login">
+
+  <!-- Based on the angular JWT login guide -->
+  <form class = "custom-form" method="post">
+    <h1 class = "title titleShadow">VARIANT</h1>
+    <div>
+      <input
+      type="text"
+      [(ngModel)]="user"
+      name="user"
+      placeholder="User"
+      required="required"
+    />
+    </div>
+
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required="required"
+    />
+    <hr>
+    <button type="submit" (click)="login()"><h3 class="title buttonShadow"><b>LOG IN</b></h3></button>
+  </form>
+</div>

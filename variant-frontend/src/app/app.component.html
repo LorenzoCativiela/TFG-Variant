@@ -1,0 +1,56 @@
+<div class = "container-full reachBottom">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <div *ngIf="login==0">
+    <app-login (token)="onLogin($event)"></app-login>
+  </div>
+
+  <div *ngIf="login==1" class="reachBottom">
+    <!-- Header -->
+    <app-header (logout)="logout()"></app-header>
+
+      <!-- Router -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footerNav">
+        <nav class="navbar navbar-expand-lg noBorder">
+
+
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" href="/"><b>VARIANT</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/search"><b>Search</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/create"><b>Create</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/log"><b>Log</b></a>
+              </li>
+
+            </ul>
+
+
+        </nav>
+
+
+      </div>
+
+      <div class = "footerText">
+
+      </div>
+    </footer>
+
+
+
+  </div>
+
+
+</div>
