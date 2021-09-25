@@ -1,0 +1,33 @@
+.mainContainer {
+  width: 300px;
+  border-radius: 25px;
+  border-style: groove;
+  border-color:#AB92BF;
+
+  background-color: #f8f0ff;
+
+  padding: 15px;
+  padding-bottom: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.title{
+  box-sizing: content-box;
+  color: #655A7C;
+  text-align: center;
+  padding-top: 7px;
+
+}
+
+.messageBody{
+  color:#655A7C;
+}
+
+
+
+h3{
+  margin-bottom: 0px;
+}
+
+hr{
+  margin-top: 0px;
+}

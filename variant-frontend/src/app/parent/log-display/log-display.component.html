@@ -1,0 +1,184 @@
+<div class="log-display mainContainer">
+
+  <h3 class="title"><b>Details</b></h3>
+  <hr>
+
+
+
+  <!-- Filter input, with search button and clear filters icon-->
+  <div *ngIf="logReport">
+    <div class="filter">
+      <form [formGroup]="filter" (ngSubmit)="searchFilter()" >
+
+        <label class="title " for="value"><h5>Filter parent: </h5></label>
+
+        <input id="value" type="text" formControlName="value" size="15">
+
+        <button class="filterButton" type="button" type="submit" >Filter</button>
+
+        <img *ngIf='activeFilter==1' src="http://nacnic.com/OURIMAGES/app/remove.png" height="30px" width="30px" (click)="refresh() ">
+
+      </form>
+    </div>
+
+
+    <div class = "logDisplay">
+      <!-- Shows logs of the page -->
+      <div class = "logRow" *ngFor="let row of logReport.logs; let i = index">
+
+        <!-- Each row is a collapse-->
+
+        <div class = "logRowHead">
+            <!-- Collapse head -->
+            <div class="row">
+              <div class="col-sm-9">
+                  <h3 class = "text"><b>Operation ID: {{row.key}}: </b><small>       Identifier: {{row.parent}}</small></h3>
+              </div>
+              <div class="col-sm-3">
+                <p1 *ngIf="row.status!='PROCESSING'">
+                  <button class="{{row.status}} statusDisplay"><h5 class="noPadding"><b>{{row.status}}</b></h5></button>
+                </p1>
+                <p1 *ngIf="row.status=='PROCESSING'">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </p1>
+
+
+                <a class="btn btn-primary  detailsButton floatRight" data-bs-toggle="collapse" href="#collapse{{i}}" role="button" aria-expanded="false" aria-controls="collapse{{i}}">
+                Details
+                </a>
+              </div>
+            </div>
+
+          <!-- Collapse body, report details -->
+          <div class="collapse" id="collapse{{i}}">
+            <div class="details subtext">
+              <h3><b>ID: {{row.key}}</b></h3>
+              <h5>Parent: <b>{{row.parent}}</b></h5>
+              <h5>Status: {{row.status}}</h5>
+              <h5>Operation: {{row.operation}}</h5>
+
+              <h5 *ngIf="row.status!='ERROR'">Response: {{row.message}}</h5>
+              <p>Marketplace: {{row.marketplace}}</p>
+
+
+              <!-- Details collapse, shows various reports -->
+              <div class="parentResponse" *ngIf="row.operation=='update'">
+                <p>
+                  <a class="btn btn-primary detailsButton " data-bs-toggle="collapse" href="#collapseMain{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Main response
+                  </a>
+                  <a class="btn btn-primary detailsButton" data-bs-toggle="collapse" href="#collapseChildren{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Children list
+                  </a>
+                  <a class="btn btn-primary detailsButton" data-bs-toggle="collapse" href="#collapseAttributes{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Attribute update response
+                  </a>
+                </p>
+
+                <!-- Main report collapse, for debugging -->
+                <div class="collapse" id="collapseMain{{i}}">
+                  <div class="card card-body">
+                    Main response: {{row.mainRes}}
+                  </div>
+                </div>
+
+                <!--Children list -->
+                <div class="collapse" id="collapseChildren{{i}}">
+                  <div class="card card-body">
+                    <!-- Table with all children and variation input -->
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">ASIN</th>
+                          <th scope="col">Variation 1</th>
+                          <th scope="col">Variation 2</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let child of row.children; let i = index">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{child.asin}}</td>
+                          <td *ngFor="let variation of child.variation; let j = index">{{child.variation[j]}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Attribute report -->
+                <div class="collapse" id="collapseAttributes{{i}}">
+                  <div class="card card-body">
+                    Attribute response: {{row.verifyRes}}
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Parent create -->
+            <div *ngIf="row.operation=='create'">
+              <h5>Product Type: {{row.productType}}</h5>
+              <h5>Relation type: {{row.variationType}}</h5>
+            </div>
+
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+    <hr>
+  </div>
+
+
+
+
+
+
+
+  <div class = "navigationContainer">
+    <div style="margin-top: 10px;">
+      <!-- Loading spinner -->
+      <div class="spinner-border" role="status" *ngIf="!logReport">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <!-- Refresh button -->
+      <button class="refreshButton" type="button" (click)="refresh()" *ngIf="logReport">
+        <img class = "icon center" (click)="refresh()" src="http://nacnic.com/OURIMAGES/app/refresh.png"/>
+      </button>
+    </div>
+
+    <!-- Allows navigation through the pages -->
+    <nav class = "navigation" *ngIf="logReport">
+      <ul class="pagination justify-content-center">
+
+        <li class="page-item" *ngIf="currentPage>1">
+          <a class="page-link text" (click)="getLogs(currentPage-1)">Previous</a>
+        </li>
+        <li class="page-item disabled" *ngIf="currentPage<=1">
+          <a class="page-link text" (click)="getLogs(currentPage-1)">Previous</a>
+        </li>
+
+        <li class="page-item {{isCurrent(page)}}" *ngFor="let page of pages">
+          <a class="page-link text" (click)="getLogs(page)" *ngIf="page==currentPage">{{page}}</a>
+          <a class="page-link text" (click)="getLogs(page)" *ngIf="page!=currentPage">{{page}}</a>
+        </li>
+
+        <li class="page-item" *ngIf="currentPage<logReport.pages">
+          <a class="page-link text" (click)="getLogs(currentPage+1)">Next</a>
+        </li>
+        <li class="page-item disabled" *ngIf="currentPage>=logReport.pages">
+          <a class="page-link text" (click)="getLogs(currentPage+1)">Next</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+
+
+</div>

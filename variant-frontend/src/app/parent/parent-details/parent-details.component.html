@@ -1,0 +1,46 @@
+<div class='container mainContainer'>
+
+  <h3 class="title"><b>Details</b></h3>
+  <hr>
+
+  <div class="messageBody">
+
+    <div *ngIf="opMode<0">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Normal mode, show information -->
+    <div *ngIf="opMode==0">
+
+      <p>Asin: <b>{{parentData.value.asin}}</b></p>
+      <p>Title: {{parentData.value.asinInfo.AttributeSets[0].Title.slice(0,100)}}...</p>
+      <p>Country: {{getCountry()}}   <small>{{parentData.value.marketplace}}</small></p>
+
+      <!-- If children, show parent -->
+      <div *ngIf="isChildren">
+        <h5>Parent ASIN: <b>{{parentData.value.asinInfo.Relationships[0].Identifiers.MarketplaceASIN.ASIN}}</b></h5>
+      </div>
+
+      <!-- If parent, show number of children-->
+      <div *ngIf="!isChildren">
+        <p>N° of children: {{parentData.value.asinInfo.Relationships.length}}</p>
+      </div>
+
+      <small>
+        <p>Product type:  <small>{{parentData.value.asinInfo.AttributeSets[0].ProductTypeName}}</small></p>
+      </small>
+
+    </div>
+
+
+    <div *ngIf="opMode>0">
+      <h6>An error ocurred when retrieving the ASIN information</h6>
+      <p>Petition: {{parentData.petition}} (Status: {{parentData.status}})</p>
+      <p>Message: {{parentData.message}}</p>
+    </div>
+  </div>
+
+
+</div>

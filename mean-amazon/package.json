@@ -1,0 +1,26 @@
+{
+  "name": "mean-amazon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-sp-api": "^0.5.4",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "hashmap": "^2.4.0",
+    "jsdom": "^17.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.11",
+    "mongoose": "^5.13.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}

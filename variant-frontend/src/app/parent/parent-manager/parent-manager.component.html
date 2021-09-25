@@ -1,0 +1,41 @@
+<div class="container-fluid reachBottom">
+  <div class="row reachBottom">
+
+    <!-- Navigation bar -->
+    <div class="col-lg-1 leftColumn noPadding">
+        <app-parent-navigation class = "navigation" [display]="display"></app-parent-navigation>
+    </div>
+
+
+    <!-- App body -->
+    <div class="col-lg-11">
+
+      <br>
+      <!-- Main screen : full body -->
+      <div class="container" *ngIf="display.displayMain==1">
+        <app-parent-main></app-parent-main>
+      </div>
+      <!-- Log screen : full body -->
+      <div class="container" *ngIf="display.displayLog==1">
+         <app-log-display class="log"></app-log-display>
+      </div>
+
+      <div class="row" >
+        <div class="col-lg-3">
+          <!-- Search-create-details : left side -->
+          <app-parent-search class="search" *ngIf="display.displaySearch==1"></app-parent-search>
+          <app-parent-create *ngIf="display.displayCreate==1"></app-parent-create>
+          <app-parent-details [parentData]="parentData" class="details" *ngIf="display.displayDetails==1"></app-parent-details>
+
+        </div>
+        <div class="col-lg-9 rightContainer">
+          <!-- Family - right side -->
+          <app-parent-family [input]="parentData" class="family" *ngIf="display.displayFamily==1 && !isChildren(parentData)"></app-parent-family>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

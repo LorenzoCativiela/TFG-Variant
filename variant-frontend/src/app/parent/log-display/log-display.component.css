@@ -1,0 +1,115 @@
+.mainContainer {
+  border-radius: 25px;
+  border-style: groove;
+  border-color:#AB92BF;
+
+
+
+  background-color: #f8f0ff;
+  overflow: hidden;
+  padding: 15px;
+  padding-bottom: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.title{
+  box-sizing: content-box;
+  color: #655A7C;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.logRowHead{
+  background-color: #e7dcf0;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #544563;
+
+  overflow: hidden;
+
+  padding: 15px;
+  padding-left: 25px;
+}
+
+.statusDisplay{
+  padding: 10px;
+  border-radius: 35px;
+  border-style: hidden;
+
+}
+.refreshButton{
+  background-color: #f8f0ff;
+  border-style:hidden;
+}
+.detailsButton{
+  background-color: #765892;
+  border-radius: 35px;
+  border-style: hidden;
+}
+.filterButton{
+  margin: 10px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 7px;
+  color: white;
+  background-color: #765892;
+  border-radius: 35px;
+  border-style: hidden;
+}
+input {
+  margin-left: 10px;
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  border-style:solid;
+  border-color: #655A7C;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h5{
+  padding-bottom:0px;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+}
+
+.text{
+  color: #655A7C;
+}
+
+.subtext{
+  color: #413755;
+}
+
+a:hover {
+  background-color: #584f6b;
+  color: white;
+}
+
+.floatRight{
+  float: right
+}
+.floatLeft{
+  float: left
+}
+.noPadding{
+  padding: 0px;
+  margin:0px;
+}
+.PROCESSING {
+  background-color: rgb(155, 155, 155);
+}
+.DONE {
+  background-color: rgb(70, 216, 25);
+}
+.ERROR {
+  background-color: rgb(228, 36, 23);
+}
+.PARTIAL {
+  background-color: rgb(202, 214, 27);
+}

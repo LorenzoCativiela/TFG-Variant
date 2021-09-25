@@ -1,0 +1,26 @@
+<div class="container-fluid mainContainer noPadding reachBottom">
+  <ul>
+    <li class="{{getSelected('displaySearch')}}">
+      <a routerLink="/search">
+        <img src="http://nacnic.com/OURIMAGES/app/search2.png" alt="Search" width="80" height="80">
+      </a>
+    </li>
+    <li *ngIf="display.displayFamily" class="{{getSelected('displayFamily')}}">
+      <a>
+        <img src="http://nacnic.com/OURIMAGES/app/edit.png" alt="Log" width="80" height="80">
+      </a>
+
+    </li>
+    <li class="{{getSelected('displayCreate')}}">
+      <a routerLink="/create">
+        <img src="http://nacnic.com/OURIMAGES/app/create.png" alt="Log" width="80" height="80">
+      </a>
+    </li>
+    <li class="{{getSelected('displayLog')}}">
+      <a routerLink="/log">
+        <img src="http://nacnic.com/OURIMAGES/app/log.png" alt="Log" width="80" height="80">
+      </a>
+    </li>
+
+  </ul>
+</div>

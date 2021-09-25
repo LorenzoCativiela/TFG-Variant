@@ -1,0 +1,74 @@
+<div class="container mainContainer">
+  <h3 class="title"><b>Variations</b></h3>
+    <hr>
+<!-- -->
+  <div *ngIf="opMode==1">
+
+    <div class="mainTable">
+      <form [formGroup]="family" (ngSubmit)="onSubmit()" >
+        <div class="table-responsive">
+          <table class="table borderless-table table-striped table-hover">
+
+            <thead class="tableHead">
+              <tr>
+                <td *ngFor="let variation of family.get('variation').value">
+                  <b>{{variation}}</b>
+                </td>
+                <td></td>
+              </tr>
+
+            </thead>
+            <tbody class="tableRows" formGroupName="rows">
+
+                <tr *ngFor="let rowId of family.get('rowId').value" formGroupName="{{rowId}}">
+                  <td *ngFor="let data of family.get('variation').value">
+                    <input id=rowId class="center fill" type="text" formControlName={{data}}>
+                  </td>
+
+                  <td>
+                    <img class = "icon center" (click)="removeRow(rowId)" src="http://nacnic.com/OURIMAGES/app/remove.png"/>
+                  </td>
+                </tr>
+                <tr>
+
+                  <td></td>
+                  <td class="center"><img class = "icon" (click)="addRow()" src="http://nacnic.com/OURIMAGES/app/add.png"/></td>
+                  <td></td><td></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button type="button" type="submit">Confirm <img width="50px" height="50px"  src="http://nacnic.com/OURIMAGES/app/confirmation.png"/></button>
+
+      </form>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="opMode == 2">
+    <p>Show children info</p>
+  </div>
+
+  <div class="chooseVariations" *ngIf="opMode == 3">
+    <h3>Choose your variation type</h3>
+    <br>
+
+
+    <form [formGroup]="variationForm" (ngSubmit)="createVariation()" >
+
+
+        <label class="subText" for="marketplace">Variation Type:</label>
+
+        <select name="variationSelected" formControlName="variationSelected" >
+          <option [value]="item" *ngFor="let item of variationList">
+            {{item}}
+          </option>
+        </select>
+
+        <button class="button" type="button" type="submit">Confirm</button>
+
+    </form>
+  </div>
+</div>

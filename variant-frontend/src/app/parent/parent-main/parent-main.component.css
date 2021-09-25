@@ -1,0 +1,14 @@
+.mainComponent{
+  margin-top: 15px;
+  margin-left: 25px;
+  color: #655A7C;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.twoImages{
+  margin-left: 20%;
+}

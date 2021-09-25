@@ -1,0 +1,47 @@
+<div class="container mainContainer">
+
+  <h3 class="title"><b>Create</b></h3>
+  <hr>
+
+  <form [formGroup]="newListing" (ngSubmit)="onSubmit()" >
+
+    <!-- SKU INPUT -->
+    <div class="parentInput">
+      <label class="subText" for="asin">New SKU:</label>
+      <input id="sku" type="text" formControlName="sku" size="40" maxlength="40">
+    </div>
+    <p class = "error" *ngIf="showError[0]==1">Please, write a valid SKU</p>
+
+    <!-- PRODUCT TYPE INPUT -->
+    <div class="textInput">
+      <label class="subText" for="productType">Product type</label>
+      <select name="productType" class="productForm" formControlName="productType" >
+        <option [value]="item" *ngFor="let item of productTypes">{{item}}</option>
+      </select>
+      <p class = "error" *ngIf="showError[2]==1">Please, choose a type</p>
+    </div>
+
+    <!-- VARIATION TYPE INPUT -->
+    <div class="textInput">
+      <label class="subText" for="variation">Variation type</label>
+      <select name="variation" class="productForm" formControlName="variation" >
+        <option [value]="item" *ngFor="let item of variationList">{{item}}</option>
+      </select>
+      <p class = "error" *ngIf="showError[3]==1">Please, choose a variation</p>
+    </div>
+
+    <!-- MARKETPLACE INPUT-->
+    <div class="textInput">
+      <label class="subText" for="marketplace">Country:</label>
+      <select name="marketplace" class="marketForm" formControlName="marketplace" >
+        <option [value]="item" *ngFor="let item of marketplaces">{{item}}</option>
+      </select>
+      <p class = "error" *ngIf="showError[1]==1">Please, choose a country</p>
+
+
+      <button class="button" type="button" type="submit" size="10">Create parent</button>
+    </div>
+    <p class = "error" *ngIf="showError[4]==1">Fatal error</p>
+
+  </form>
+</div>

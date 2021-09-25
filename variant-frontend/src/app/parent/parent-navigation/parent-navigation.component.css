@@ -1,0 +1,51 @@
+.mainContainer{
+  border-width: 2px;
+
+  min-height:90vh;
+  border-right: #ccc07b groove 2px;
+  background-color: #fff8c5;
+}
+
+
+.noPadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul {
+
+  list-style-type: none;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  width:100%;
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1vw 1vw;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #655A7C;
+}
+.selected {
+  background-color: #ccc592;
+}
+
+.reachBottom{
+  height: 100%;
+
+}
+
+hr{
+  border-top: 1px solid red;
+  padding: 10px;
+}
